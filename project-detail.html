@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Detailed project portfolio page" />
+    <title>Project Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="detail-page">
+    <header class="site-header">
+      <nav class="navbar container">
+        <a href="index.html" class="brand">Nafus<span>.</span></a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links">
+          <a href="index.html#home">Home</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#skills">Skills</a>
+          <a href="index.html#projects">Projects</a>
+          <a href="index.html#contact">Contact</a>
+          <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">☾ <span>Dark mode</span></button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="detail-wrap container">
+      <div class="detail-card">
+        <div class="detail-hero">
+          <img data-project-image src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80" alt="Project preview" />
+        </div>
+
+        <div class="detail-body">
+          <div class="detail-header">
+            <h1 data-project-name>Project Name</h1>
+            <a class="btn btn-primary" href="index.html#projects">Back to Portfolio</a>
+          </div>
+
+          <div class="project-meta" data-project-stack>
+            <span>React</span>
+            <span>Node.js</span>
+            <span>MongoDB</span>
+          </div>
+
+          <div class="detail-grid">
+            <div class="detail-copy">
+              <p data-project-description>
+                Project description will appear here.
+              </p>
+            </div>
+
+            <aside class="detail-side">
+              <h3>Project Links</h3>
+              <ul>
+                <li data-project-live-row hidden><strong>Live Demo:</strong> <a data-project-live href="#" target="_blank" rel="noreferrer">Open Vercel deployment</a></li>
+                <li><strong>GitHub:</strong> <a data-project-github href="https://github.com/nafus08" target="_blank" rel="noreferrer">Source code</a></li>
+              </ul>
+              <p class="deployment-note" data-project-live-note hidden>Vercel access protection may require authorization.</p>
+            </aside>
+          </div>
+
+          <div class="detail-grid" style="margin-top: 1.5rem;">
+            <div class="detail-copy">
+              <h3>Challenges Faced</h3>
+              <p data-project-challenges>Project-specific challenges will appear here.</p>
+            </div>
+
+            <div class="detail-copy">
+              <h3>Future Improvements</h3>
+              <p data-project-future>Potential improvements will appear here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
