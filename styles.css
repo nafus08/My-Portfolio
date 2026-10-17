@@ -229,13 +229,50 @@ button {
 .social-links a {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 0.6rem;
   min-width: 82px;
   padding: 0.65rem 0.9rem;
   border-radius: 999px;
   background: #eef2ff;
   color: var(--text);
   font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.social-links svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 auto;
+}
+
+.social-link--github svg {
+  color: #181717;
+}
+
+.social-link--linkedin svg {
+  color: #0a66c2;
+}
+
+.social-link--github:hover,
+.social-link--github:focus-visible {
+  background: #181717;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.social-link--linkedin:hover,
+.social-link--linkedin:focus-visible {
+  background: #0a66c2;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.social-link--github:hover svg,
+.social-link--github:focus-visible svg,
+.social-link--linkedin:hover svg,
+.social-link--linkedin:focus-visible svg {
+  color: #fff;
 }
 
 .photo-card {
@@ -275,18 +312,12 @@ button {
   text-align: center;
 }
 
-.profile-initials {
-  width: 190px;
-  height: 190px;
-  display: grid;
-  place-items: center;
+.profile-card img {
+  width: min(100%, 300px);
+  aspect-ratio: 1;
   border: 1px solid rgba(79, 70, 229, 0.2);
   border-radius: 50%;
-  background: linear-gradient(135deg, #e0e7ff, #dcfce7);
-  color: var(--primary-dark);
-  font-size: 4rem;
-  font-weight: 800;
-  letter-spacing: -0.08em;
+  object-fit: cover;
 }
 
 .profile-card p {
@@ -358,19 +389,80 @@ button {
 
 .skill-list li {
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: flex-start;
+  gap: 0.7rem;
   align-items: center;
-  color: var(--muted);
-}
-
-.skill-list li span {
+  min-height: 42px;
+  padding: 0.35rem 0.55rem;
+  border-radius: 10px;
+  color: var(--text);
   font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
-.skill-list li b {
-  color: var(--primary);
-  font-weight: 700;
+.skill-list li:hover {
+  background: var(--skill-accent, #4f46e5);
+  color: #fff;
+  transform: translateX(3px);
+}
+
+.skill-icon {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--skill-accent, #4f46e5) 13%, #fff);
+  color: var(--skill-accent, #4f46e5);
+  font-size: 0.74rem;
+  font-weight: 800;
+  line-height: 1;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.skill-list li:hover .skill-icon {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.skill-icon--html { --skill-accent: #e34f26; }
+.skill-icon--typescript { --skill-accent: #3178c6; }
+.skill-icon--react { --skill-accent: #087ea4; }
+.skill-icon--next { --skill-accent: #111827; }
+.skill-icon--tailwind { --skill-accent: #06b6d4; }
+.skill-icon--node { --skill-accent: #43853d; }
+.skill-icon--express { --skill-accent: #374151; }
+.skill-icon--python { --skill-accent: #3776ab; }
+.skill-icon--java { --skill-accent: #e76f00; }
+.skill-icon--kotlin { --skill-accent: #7f52ff; }
+.skill-icon--postgres { --skill-accent: #4169e1; }
+.skill-icon--mysql { --skill-accent: #00758f; }
+.skill-icon--sqlite { --skill-accent: #0f80cc; }
+.skill-icon--firebase { --skill-accent: #f0a800; }
+.skill-icon--git { --skill-accent: #f05032; }
+.skill-icon--gradle { --skill-accent: #02303a; }
+.skill-icon--jupyter { --skill-accent: #f37626; }
+.skill-icon--bootstrap { --skill-accent: #7952b3; }
+
+.skill-item--html { --skill-accent: #e34f26; }
+.skill-item--typescript { --skill-accent: #3178c6; }
+.skill-item--react { --skill-accent: #087ea4; }
+.skill-item--next { --skill-accent: #111827; }
+.skill-item--tailwind { --skill-accent: #06b6d4; }
+.skill-item--node { --skill-accent: #43853d; }
+.skill-item--express { --skill-accent: #374151; }
+.skill-item--python { --skill-accent: #3776ab; }
+.skill-item--java { --skill-accent: #e76f00; }
+.skill-item--kotlin { --skill-accent: #7f52ff; }
+.skill-item--postgres { --skill-accent: #4169e1; }
+.skill-item--mysql { --skill-accent: #00758f; }
+.skill-item--sqlite { --skill-accent: #0f80cc; }
+.skill-item--firebase { --skill-accent: #f0a800; }
+.skill-item--git { --skill-accent: #f05032; }
+.skill-item--gradle { --skill-accent: #02303a; }
+.skill-item--jupyter { --skill-accent: #f37626; }
+.skill-item--bootstrap { --skill-accent: #7952b3; }
 }
 
 .timeline {
@@ -530,9 +622,84 @@ button {
   gap: 0.8rem;
 }
 
-.contact-card a {
-  color: var(--primary);
-  font-weight: 600;
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  min-height: 68px;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #f8faff;
+  color: var(--text);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-link svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  flex: 0 0 auto;
+  color: var(--contact-accent);
+}
+
+.contact-link span {
+  display: grid;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.contact-link strong {
+  font-size: 0.9rem;
+}
+
+.contact-link small {
+  color: var(--muted);
+  font-size: 0.84rem;
+  overflow-wrap: anywhere;
+}
+
+.contact-link:hover,
+.contact-link:focus-visible {
+  border-color: var(--contact-accent);
+  background: var(--contact-accent);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.contact-link:hover svg,
+.contact-link:focus-visible svg,
+.contact-link:hover small,
+.contact-link:focus-visible small {
+  color: #fff;
+}
+
+.contact-link--email { --contact-accent: #d93025; }
+.contact-link--phone { --contact-accent: #168a52; }
+.contact-link--linkedin { --contact-accent: #0a66c2; }
+.contact-link--github { --contact-accent: #181717; }
+
+body[data-theme="dark"] .contact-link {
+  background: #0e1526;
+  border-color: rgba(226, 232, 240, 0.14);
+  color: #f1f5f9;
+}
+
+body[data-theme="dark"] .contact-link small {
+  color: #cbd5e1;
+}
+
+body[data-theme="dark"] .contact-link:hover,
+body[data-theme="dark"] .contact-link:focus-visible {
+  background: var(--contact-accent);
+  border-color: var(--contact-accent);
+  color: #fff;
+}
+
+body[data-theme="dark"] .contact-link:hover small,
+body[data-theme="dark"] .contact-link:focus-visible small,
+body[data-theme="dark"] .contact-link:hover svg,
+body[data-theme="dark"] .contact-link:focus-visible svg {
+  color: #fff;
 }
 
 .site-footer {
@@ -736,9 +903,24 @@ body[data-theme="dark"] .project-meta span {
   color: #c7d2fe;
 }
 
-body[data-theme="dark"] .profile-initials {
-  background: linear-gradient(135deg, #27345f, #164333);
-  color: #c7d2fe;
+body[data-theme="dark"] .social-link--github:hover,
+body[data-theme="dark"] .social-link--github:focus-visible {
+  background: #181717;
+  color: #fff;
+}
+
+body[data-theme="dark"] .social-link--linkedin:hover,
+body[data-theme="dark"] .social-link--linkedin:focus-visible {
+  background: #0a66c2;
+  color: #fff;
+}
+
+body[data-theme="dark"] .skill-list li {
+  color: #f1f5f9;
+}
+
+body[data-theme="dark"] .skill-icon {
+  background: color-mix(in srgb, var(--skill-accent, #818cf8) 25%, #121a2b);
 }
 
 @media (max-width: 900px) {
