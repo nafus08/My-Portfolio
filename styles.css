@@ -554,7 +554,8 @@ button {
 .project-card img {
   width: 100%;
   height: 220px;
-  object-fit: cover;
+  object-fit: contain;
+  background: #fff;
 }
 
 .project-info {
@@ -738,7 +739,8 @@ body[data-theme="dark"] .contact-link:focus-visible svg {
 .detail-hero img {
   width: 100%;
   height: 360px;
-  object-fit: cover;
+  object-fit: contain;
+  background: #fff;
 }
 
 .detail-body {

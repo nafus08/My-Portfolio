@@ -45,7 +45,8 @@ if (currentYear) {
 const projectData = {
   'school-management': {
     name: 'School Management System',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80',
+    image: 'images/school-management-login.png',
+    imageAlt: 'School Management System sign-in page',
     description:
       'A full-stack school management system with a responsive TypeScript front end, dynamic routing, and form validation for student, teacher, and admin roles. The Node.js application queries a designed MySQL schema to manage student records, attendance, and grades.',
     stack: ['Node.js', 'TypeScript', 'MySQL'],
@@ -57,7 +58,8 @@ const projectData = {
   },
   'used-car-parts': {
     name: 'UsedCarParts',
-    image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1200&q=80',
+    image: 'images/used-car-parts-wireframes.png',
+    imageAlt: 'UsedCarParts marketplace app wireframes',
     description:
       'An Android marketplace app for buying and selling used car parts. The app includes listings and user accounts, with Firebase authentication, database, storage, and real-time data synchronization. Wireframes and an ERD were created before development.',
     stack: ['Kotlin', 'Gradle', 'Firebase'],
@@ -68,7 +70,8 @@ const projectData = {
   },
   'customer-churn': {
     name: 'Customer Churn Prediction',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+    image: 'images/customer-churn-roc.png',
+    imageAlt: 'ROC curve comparison for customer churn prediction models',
     description:
       'A machine-learning project implementing neural network, K-nearest neighbors, and logistic regression classifiers from scratch. Models were compared using a prepared dataset, tuned hyperparameters, and evaluated with accuracy and other metrics documented in a project report.',
     stack: ['Python', 'Neural Network', 'KNN', 'Logistic Regression'],
@@ -98,7 +101,10 @@ if (detailPage && projectId && projectData[projectId]) {
   const futureEl = document.querySelector('[data-project-future]');
 
   if (nameEl) nameEl.textContent = project.name;
-  if (imageEl) imageEl.src = project.image;
+  if (imageEl) {
+    imageEl.src = project.image;
+    imageEl.alt = project.imageAlt;
+  }
   if (descriptionEl) descriptionEl.textContent = project.description;
   if (stackEl) {
     stackEl.innerHTML = project.stack.map((item) => `<span>${item}</span>`).join('');
