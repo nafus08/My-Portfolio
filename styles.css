@@ -456,6 +456,8 @@ button {
 .skill-icon--mysql { --skill-accent: #00758f; }
 .skill-icon--sqlite { --skill-accent: #0f80cc; }
 .skill-icon--firebase { --skill-accent: #f0a800; }
+.skill-icon--prisma { --skill-accent: #2d3748; }
+.skill-icon--supabase { --skill-accent: #3ecf8e; }
 .skill-icon--git { --skill-accent: #f05032; }
 .skill-icon--gradle { --skill-accent: #02303a; }
 .skill-icon--jupyter { --skill-accent: #f37626; }
@@ -475,6 +477,8 @@ button {
 .skill-item--mysql { --skill-accent: #00758f; }
 .skill-item--sqlite { --skill-accent: #0f80cc; }
 .skill-item--firebase { --skill-accent: #f0a800; }
+.skill-item--prisma { --skill-accent: #2d3748; }
+.skill-item--supabase { --skill-accent: #3ecf8e; }
 .skill-item--git { --skill-accent: #f05032; }
 .skill-item--gradle { --skill-accent: #02303a; }
 .skill-item--jupyter { --skill-accent: #f37626; }
@@ -663,12 +667,12 @@ button {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  align-items: center;
-  gap: 2rem;
+  grid-template-columns: minmax(0, 900px);
+  justify-content: center;
 }
 
 .contact-card {
+  width: 100%;
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 20px;
@@ -679,6 +683,7 @@ button {
 .contact-card ul {
   list-style: none;
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.8rem;
 }
 
@@ -1043,6 +1048,10 @@ body[data-theme="dark"] .skill-icon {
   }
 
   .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card ul {
     grid-template-columns: 1fr;
   }
 
