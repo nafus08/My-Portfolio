@@ -48,8 +48,8 @@ const projectData = {
     image: 'images/school-management-login.png',
     imageAlt: 'School Management System sign-in page',
     description:
-      'A full-stack school management system with a responsive TypeScript front end, dynamic routing, and form validation for student, teacher, and admin roles. The Node.js application queries a designed MySQL schema to manage student records, attendance, and grades.',
-    stack: ['Node.js', 'TypeScript', 'MySQL'],
+      'A full-stack school management system with a responsive TypeScript front end, dynamic routing, and form validation for student, teacher, and admin roles. Prisma Client handles data access to a PostgreSQL database hosted on Supabase.',
+    stack: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL'],
     live: 'https://school-management-system-mxu496sbg.vercel.app/',
     liveAccessNote: true,
     github: 'https://github.com/nafus08/school-management-system',

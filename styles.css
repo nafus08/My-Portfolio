@@ -541,9 +541,52 @@ button {
   font-size: 1.5rem;
 }
 
+.experience-heading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.organization-logo {
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .experience-header span {
   color: var(--muted);
   font-weight: 600;
+}
+
+.experience-preview-link {
+  display: block;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.experience-preview-link img {
+  display: block;
+  width: 100%;
+  height: clamp(220px, 35vw, 360px);
+  object-fit: cover;
+  object-position: top;
+}
+
+.experience-preview-link span {
+  display: block;
+  padding: 0.8rem 1rem;
+}
+
+.experience-preview-link:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
 }
 
 .experience-card ul {
